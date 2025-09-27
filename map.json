@@ -1,28 +1,29 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.2.0.json",
   "title": {
     "text": "Total Population by State – Australia (2024)",
     "anchor": "middle"
   },
-  "width": 800,
-  "height": 600,
+  "width": 600,
+  "height": 500,
   "projection": {
     "type": "mercator",
     "center": [134, -25],
-    "scale": 700
+    "scale": 850
   },
   "layer": [
     {
       "data": {"graticule": true},
       "mark": {
         "type": "geoshape",
-        "stroke": "#b0b0b0",
+        "fill": "#e6f2ff",      
+        "stroke": "#d9d9d9",    
         "strokeWidth": 0.5
       }
     },
     {
       "data": {
-        "url": "ne_10m.json",
+        "url": "https://raw.githubusercontent.com/KentFerio/FIT3179W9HW/main/ne_10m.json",
         "format": {
           "type": "topojson",
           "feature": "ne_10m_admin_1_states_provinces"
@@ -32,7 +33,10 @@
         {
           "lookup": "properties.name",
           "from": {
-            "data": {"url": "TotalPopAus_2024.csv"},
+            "data": {
+              "url": "https://raw.githubusercontent.com/KentFerio/FIT3179W9HW/main/TotalPopAus_2024.csv",
+              "format": {"type": "csv", "parse": {"Total": "number"}}
+            },
             "key": "State",
             "fields": ["Total"]
           }
@@ -41,7 +45,7 @@
       "mark": {
         "type": "geoshape",
         "stroke": "white",
-        "strokeWidth": 0.8
+        "strokeWidth": 0.5
       },
       "encoding": {
         "color": {
@@ -52,7 +56,11 @@
         },
         "tooltip": [
           {"field": "properties.name", "title": "State"},
-          {"field": "Total", "title": "Population", "format": ","}
+          {
+            "field": "Total",
+            "title": "Population (people)",
+            "format": ","
+          }
         ]
       }
     }
