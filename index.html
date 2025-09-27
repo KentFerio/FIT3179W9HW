@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Total Population by State – Australia (2024)</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
     body {
+      background-color: #f9f9f9;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      margin-top: 20px;
       text-align: center;
+      margin: 0;
+      padding: 20px;
     }
-
-    /* 🔹 Responsive container */
     #vis {
-      width: 90vw;      /* 90% of viewport width */
-      height: 75vh;     /* 75% of viewport height */
-      max-width: 1200px;
-      max-height: 900px;
-      margin: 20px auto;
+      display: inline-block;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -38,8 +26,7 @@
 
   <script type="text/javascript">
     vegaEmbed('#vis', 'map.json', {
-      actions: false,
-      renderer: "canvas"
+      actions: false
     }).catch(console.error);
   </script>
 </body>
