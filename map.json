@@ -1,8 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Debug Join",
-  "width": 500,
-  "height": 400,
+  "title": {
+    "text": "Total Population by State – Australia (2024)",
+    "anchor": "middle"
+  },
+  "width": 800,
+  "height": 600,
+  "projection": {
+    "type": "mercator",
+    "center": [134, -26],
+    "scale": 900,
+    "translate": [400, 300]
+  },
   "data": {
     "url": "ne_10m.json",
     "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
@@ -17,8 +26,21 @@
       }
     }
   ],
-  "mark": "geoshape",
+  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.8},
   "encoding": {
-    "color": {"field": "Total", "type": "quantitative"}
+    "color": {
+      "field": "Total",
+      "type": "quantitative",
+      "scale": {"scheme": "blues"},
+      "title": "Population"
+    },
+    "tooltip": [
+      {"field": "properties.name", "title": "State"},
+      {"field": "Total", "title": "Population", "format": ","}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "background": "white"
   }
 }
