@@ -5,12 +5,12 @@
     "fontSize": 16,
     "anchor": "start"
   },
-  "width": 400,
-  "height": 300,
+  "width": 800,
+  "height": 600,
   "projection": {
     "type": "mercator",
     "center": [134, -25],
-    "scale": 600
+    "scale": 650
   },
   "layer": [
     {
