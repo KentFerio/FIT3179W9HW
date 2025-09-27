@@ -9,11 +9,26 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f9f9f9;
     }
+
+    h1 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* 🔹 Responsive container for the map */
     #vis {
-      width: 1200px;   /* ⬅️ set your preferred size */
-      height: 900px;
-      margin: 20px;
+      width: 90vw;   /* 90% of viewport width */
+      height: 75vh;  /* 75% of viewport height */
+      max-width: 1200px; /* prevent overscaling */
+      max-height: 900px;
+      margin: 20px auto;
     }
   </style>
 </head>
