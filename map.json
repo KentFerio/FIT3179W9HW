@@ -6,16 +6,16 @@
     "fontSize": 20,
     "anchor": "start"
   },
-  "width": 900,
-  "height": 700,
+  "width": 1200,
+  "height": 900,
   "projection": {
     "type": "mercator",
     "center": [134, -25],
-    "scale": 900
+    "scale": 1300   // ⬅️ This number controls zoom level
   },
   "layer": [
     {
-      "data": { "graticule": true },
+      "data": {"graticule": true},
       "mark": {
         "type": "geoshape",
         "fill": "#f0f8ff",
@@ -36,7 +36,7 @@
           "from": {
             "data": {
               "url": "https://raw.githubusercontent.com/KentFerio/FIT3179W9HW/main/TotalPopAus_2024.csv",
-              "format": { "type": "csv", "parse": { "Total": "number" } }
+              "format": {"type": "csv", "parse": {"Total": "number"}}
             },
             "key": "State",
             "fields": ["Total"]
