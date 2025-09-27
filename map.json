@@ -1,21 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.2.0.json",
-  "autosize": {"type": "none"}, 
+  "autosize": { "type": "fit", "contains": "padding" },
   "title": {
     "text": "Total Population by State – Australia (2024)",
     "fontSize": 20,
     "anchor": "start"
   },
-  "width": 1200,
-  "height": 900,
   "projection": {
     "type": "mercator",
     "center": [134, -25],
-    "scale": 1300   // ⬅️ This number controls zoom level
+    "scale": 900
   },
   "layer": [
     {
-      "data": {"graticule": true},
+      "data": { "graticule": true },
       "mark": {
         "type": "geoshape",
         "fill": "#f0f8ff",
@@ -36,24 +34,32 @@
           "from": {
             "data": {
               "url": "https://raw.githubusercontent.com/KentFerio/FIT3179W9HW/main/TotalPopAus_2024.csv",
-              "format": {"type": "csv", "parse": {"Total": "number"}}
+              "format": { "type": "csv", "parse": { "Total": "number" } }
             },
             "key": "State",
             "fields": ["Total"]
           }
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
       "encoding": {
         "color": {
           "field": "Total",
           "type": "quantitative",
-          "scale": {"scheme": "blues"},
+          "scale": { "scheme": "blues" },
           "title": "Population"
         },
         "tooltip": [
-          {"field": "properties.name", "title": "State"},
-          {"field": "Total", "title": "Population (people)", "format": ","}
+          { "field": "properties.name", "title": "State" },
+          {
+            "field": "Total",
+            "title": "Population (people)",
+            "format": ","
+          }
         ]
       }
     }
