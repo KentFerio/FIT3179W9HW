@@ -1,20 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Total Population by State – Australia (2024)",
+    "anchor": "middle"
+  },
   "width": 800,
   "height": 600,
   "projection": {
     "type": "mercator",
-    "center": [134, -26],
-    "scale": 900,
-    "translate": [400, 300]
+    "center": [134, -25],
+    "scale": 700
   },
   "layer": [
     {
       "data": {"graticule": true},
       "mark": {
         "type": "geoshape",
-        "stroke": "#d3d3d3",
-        "strokeWidth": 0.6
+        "stroke": "#b0b0b0",
+        "strokeWidth": 0.5
       }
     },
     {
@@ -35,7 +38,11 @@
           }
         }
       ],
-      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.8},
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.8
+      },
       "encoding": {
         "color": {
           "field": "Total",
