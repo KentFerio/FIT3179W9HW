@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Australia Population Map (2024)</title>
+  <meta charset="UTF-8" />
+  <title>Total Population Map</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-  <h2>Total Population by State – Australia (2024)</h2>
+  <h1>Total Population by State – Australia (2024)</h1>
   <div id="vis"></div>
 
   <script type="text/javascript">
-    vegaEmbed('#vis', 'map.json', {actions: false})
-      .then(function(result) {
-      })
-      .catch(console.error);
+    vegaEmbed('#vis', 'map.json').catch(console.error);
   </script>
 </body>
 </html>
