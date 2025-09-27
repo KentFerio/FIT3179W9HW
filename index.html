@@ -1,44 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Total Population by State – Australia (2024)</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Total Population Map</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <h1>Total Population by State – Australia (2024)</h1>
+  <div id="vis"></div>
 
-    <!-- Load Vega & Vega-Lite -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <!-- Styling -->
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 30px;
-        padding: 0;
-        background: #ffffff;
-      }
-
-      h1 {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-      }
-
-      #vis {
-        width: 400px; /* fixed size */
-        height: 300px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>Total Population by State – Australia (2024)</h1>
-    <div id="vis"></div>
-
-    <script type="text/javascript">
-      vegaEmbed("#vis", "map.json", {
-        actions: false,
-        renderer: "canvas"
-      }).catch(console.error);
-    </script>
-  </body>
+  <script type="text/javascript">
+    vegaEmbed('#vis', 'map.json').then(function(result) {
+      // You can access the Vega view instance as result.view
+    }).catch(console.error);
+  </script>
+</body>
 </html>
