@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    <!-- Add some basic responsive styling -->
+    <!-- Responsive Styling -->
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -24,11 +24,12 @@
       h1 {
         text-align: center;
         margin-top: 20px;
+        font-size: 1.8em;
       }
 
       #vis {
-        width: 75%;
-        max-width: 1000px; /* prevent it from being too wide */
+        width: 70%;
+        max-width: 800px;
         margin: 20px auto;
       }
     </style>
@@ -39,7 +40,7 @@
     <div id="vis"></div>
 
     <script type="text/javascript">
-      vegaEmbed('#vis', 'map.json', {
+      vegaEmbed("#vis", "map.json", {
         actions: false,
         renderer: "canvas"
       }).catch(console.error);
