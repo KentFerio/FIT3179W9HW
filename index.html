@@ -11,9 +11,14 @@
       background-color: #f9f9f9;
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 20px;
     }
     #vis {
-      margin-top: 20px;
+      margin-top: 10px;
       display: inline-block;
     }
   </style>
@@ -23,7 +28,9 @@
   <div id="vis"></div>
 
   <script type="text/javascript">
-    vegaEmbed('#vis', 'map.json', {actions: false}).catch(console.error);
+    vegaEmbed('#vis', 'map.json', { actions: false })
+      .then(result => console.log("Visualization loaded"))
+      .catch(console.error);
   </script>
 </body>
 </html>
