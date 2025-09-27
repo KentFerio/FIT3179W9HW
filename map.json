@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.2.0.json",
   "title": "Total Population by State – Australia (2024)",
-  "width": 800,
-  "height": 600,
+  "width": 600,          // smaller width
+  "height": 400,         // smaller height
   "projection": {
     "type": "mercator",
     "center": [134, -25],
-    "scale": 500
+    "scale": 400          // reduced scale to fit
   },
   "layer": [
     {
@@ -48,11 +48,7 @@
         },
         "tooltip": [
           {"field": "properties.name", "title": "State"},
-          {
-            "field": "Total",
-            "title": "Population (people)",
-            "format": ","
-          }
+          {"field": "Total", "title": "Population (people)", "format": ","}
         ]
       }
     }
