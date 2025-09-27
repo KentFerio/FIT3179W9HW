@@ -6,14 +6,25 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #vis {
+      width: 1200px;   /* ⬅️ set your preferred size */
+      height: 900px;
+      margin: 20px;
+    }
+  </style>
 </head>
 <body>
   <h1>Total Population by State – Australia (2024)</h1>
   <div id="vis"></div>
 
   <script type="text/javascript">
-    vegaEmbed('#vis', 'map.json').then(function(result) {
-      // You can access the Vega view instance as result.view
+    vegaEmbed('#vis', 'map.json', {
+      actions: false,
+      renderer: "canvas"
     }).catch(console.error);
   </script>
 </body>
