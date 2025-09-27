@@ -1,48 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Total Population by State – Australia (2024)</title>
-
-    <!-- Load Vega & Vega-Lite -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-    <!-- Add some basic responsive styling -->
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f9f9f9;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+<script type="text/javascript">
+  vegaEmbed('#vis', {
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.2.0.json",
+    "title": "Total Population by State – Australia (2024)",
+    "width": 600,
+    "height": 500,
+    "projection": {
+      "type": "mercator",
+      "center": [134, -25],
+      "scale": 850
+    },
+    "layer": [
+      {
+        "data": {"graticule": true},
+        "mark": {
+          "type": "geoshape",
+          "fill": "#e6f2ff",
+          "stroke": "#d9d9d9"
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/KentFerio/FIT3179W9HW/main/ne_10m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_10m_admin_1_states_provinces"
+          }
+        },
+        "transform": [
+          {
+            "lookup": "properties.name",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/KentFerio/FIT3179W9HW/main/TotalPopAus_2024.csv",
+                "format": {"type": "csv", "parse": {"Total": "number"}}
+              },
+              "key": "State",
+              "fields": ["Total"]
+            }
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "stroke": "white",
+          "strokeWidth": 0.5
+        },
+        "encoding": {
+          "color": {
+            "field": "Total",
+            "type": "quantitative",
+            "scale": {"scheme": "blues"},
+            "title": "Population"
+          },
+          "tooltip": [
+            {"field": "properties.name", "title": "State"},
+            {"field": "Total", "title": "Population", "format": ","}
+          ]
+        }
       }
-
-      h1 {
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      #vis {
-        width: 95%;
-        max-width: 1000px; /* prevent it from being too wide */
-        margin: 20px auto;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>Total Population by State – Australia (2024)</h1>
-    <div id="vis"></div>
-
-    <script type="text/javascript">
-      vegaEmbed('#vis', 'australia_population.json', {
-        actions: false,
-        renderer: "canvas"
-      }).catch(console.error);
-    </script>
-  </body>
-</html>
+    ]
+  }, {actions: false}).catch(console.error);
+</script>
